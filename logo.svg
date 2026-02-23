@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c4dff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b57bee;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff8c94;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b57bee;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background pill -->
+  <rect x="0" y="0" width="400" height="120" rx="20" fill="url(#grad1)" opacity="0.06"/>
+
+  <!-- Magnet icon shape -->
+  <!-- Left arm -->
+  <path d="M 28 30 L 28 72 Q 28 88 44 88 Q 60 88 60 72 L 60 62" stroke="url(#grad1)" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <!-- Right arm -->
+  <path d="M 76 30 L 76 72 Q 76 88 60 88" stroke="url(#grad1)" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <!-- Top bar -->
+  <rect x="18" y="22" width="20" height="14" rx="4" fill="#ff4757"/>
+  <rect x="66" y="22" width="20" height="14" rx="4" fill="#7c4dff"/>
+  <!-- Magnetic field dots -->
+  <circle cx="100" cy="60" r="3" fill="#b57bee" opacity="0.6"/>
+  <circle cx="112" cy="52" r="2" fill="#b57bee" opacity="0.4"/>
+  <circle cx="112" cy="68" r="2" fill="#b57bee" opacity="0.4"/>
+
+  <!-- Brand name -->
+  <text x="125" y="52" font-family="Georgia, serif" font-size="28" font-weight="700" fill="url(#grad1)" letter-spacing="-0.5">Magnetic</text>
+  <text x="125" y="82" font-family="Georgia, serif" font-size="28" font-weight="700" fill="url(#grad2)" letter-spacing="-0.5">Apparels</text>
+
+  <!-- Tagline -->
+  <text x="126" y="100" font-family="Arial, sans-serif" font-size="10" fill="#888" letter-spacing="3" text-transform="uppercase">FASHION · STYLE · YOU</text>
+
+  <!-- Decorative accent line -->
+  <line x1="125" y1="88" x2="340" y2="88" stroke="url(#grad2)" stroke-width="1.5" opacity="0.3"/>
+</svg>

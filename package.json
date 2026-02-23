@@ -1,0 +1,13 @@
+{
+  "name": "magnetic-apparels",
+  "version": "1.0.0",
+  "description": "Magnetic Apparels - Full Stack E-Commerce",
+  "private": true,
+  "scripts": {
+    "install:all": "cd magnetic-apparels-node && npm install && cd ../magnetic-apparels-vue && npm install && cd ../magnetic-apparels-react && npm install && cd ../magnetic-apparels-angular && npm install",
+    "start:node": "cd magnetic-apparels-node && npm run dev",
+    "start:vue": "cd magnetic-apparels-vue && npm run dev",
+    "start:react": "cd magnetic-apparels-react && npm start",
+    "start:angular": "cd magnetic-apparels-angular && npm start"
+  }
+}
