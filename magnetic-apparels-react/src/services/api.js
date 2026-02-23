@@ -18,7 +18,8 @@ api.interceptors.response.use(
     if (err.response?.status === 401) {
       localStorage.removeItem('ma_token');
       localStorage.removeItem('ma_user');
-      window.location.href = 'http://localhost:5173/login';
+      localStorage.removeItem('ma_token_validated');
+      window.location.href = '/login';
     }
     return Promise.reject(err);
   }
@@ -35,6 +36,12 @@ export const cartService = {
   add: (item) => api.post('/cart', item),
   update: (productId, quantity) => api.put(`/cart/${productId}`, { quantity }),
   remove: (productId) => api.delete(`/cart/${productId}`)
+};
+
+export const orderService = {
+  create: (data) => api.post('/orders', data),
+  getMine: () => api.get('/orders/me'),
+  getById: (id) => api.get(`/orders/${id}`)
 };
 
 export default api;

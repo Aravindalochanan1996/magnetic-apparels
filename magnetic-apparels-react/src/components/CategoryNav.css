@@ -1,0 +1,44 @@
+.category-nav {
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 0.75rem 0;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  overflow-x: auto;
+  gap: 1rem;
+}
+
+.nav-item {
+  white-space: nowrap;
+  font-size: 0.9rem;
+  color: #333;
+  cursor: pointer;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-item:hover {
+  color: #F05A9B;
+}
+
+.nav-item.active {
+  color: #F05A9B;
+  border-bottom-color: #F05A9B;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.nav-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.nav-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
