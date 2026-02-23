@@ -1,54 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './ProductCard.css';
 
 const ProductCard = ({ product, onAddToCart }) => {
-  const [added, setAdded] = useState(false);
-  const [selectedSize, setSelectedSize] = useState('M');
-
-  const handleAdd = () => {
-    onAddToCart({ ...product, size: selectedSize });
-    setAdded(true);
-    setTimeout(() => setAdded(false), 2000);
-  };
-
-  const categoryIcons = {
-    dresses: '👗', shoes: '👟', watches: '⌚', wallets: '👜'
-  };
+  const rating = product.rating?.rate || 4;
+  const count = product.rating?.count || 100;
 
   return (
-    <div className="product-card">
-      <div className="card-badge">{product.discount}% OFF</div>
-      <div className="card-category">{categoryIcons[product.appCategory]} {product.appCategory}</div>
-      <div className="card-img-wrap">
-        <img src={product.image} alt={product.title} loading="lazy" />
+    <div className="meesho-product-card" onClick={() => onAddToCart(product)}>
+      <div className="image-container">
+        <img src={product.image} alt={product.title} />
       </div>
-      <div className="card-body">
-        <h3 className="card-title">{product.title}</h3>
-        <div className="card-rating">
-          {'★'.repeat(Math.round(product.rating?.rate || 4))}
-          {'☆'.repeat(5 - Math.round(product.rating?.rate || 4))}
-          <span>({product.rating?.count})</span>
+      <div className="product-info">
+        <p className="product-title">{product.title}</p>
+        <div className="price-row">
+          <span className="current-price">₹{product.price?.toLocaleString('en-IN')}</span>
+          <span className="original-price">₹{product.originalPrice?.toLocaleString('en-IN')}</span>
+          <span className="discount-percent">{product.discount}% off</span>
         </div>
-        <div className="card-price">
-          <span className="price-now">₹{product.price?.toLocaleString('en-IN')}</span>
-          <span className="price-old">₹{product.originalPrice?.toLocaleString('en-IN')}</span>
+        <div className="delivery-tag">
+          <span>Free Delivery</span>
         </div>
-        <div className="size-picker">
-          {(product.sizes || ['S', 'M', 'L', 'XL']).map(s => (
-            <button
-              key={s}
-              className={`size-btn ${selectedSize === s ? 'active' : ''}`}
-              onClick={() => setSelectedSize(s)}
-            >{s}</button>
-          ))}
+        <div className="rating-row">
+          <div className="rating-badge">
+            <span>{rating} ★</span>
+          </div>
+          <span className="rating-count">{count} Reviews</span>
         </div>
-        <p className="delivery-info">🚚 {product.deliveryIn} delivery</p>
-        <button
-          className={`btn-add ${added ? 'added' : ''}`}
-          onClick={handleAdd}
-        >
-          {added ? '✓ Added to Cart' : '+ Add to Cart'}
-        </button>
       </div>
     </div>
   );

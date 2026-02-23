@@ -28,28 +28,21 @@ describe('ProductCard', () => {
     expect(screen.getByText(/1,499/)).toBeInTheDocument();
   });
 
-  it('shows discount badge', () => {
+  it('shows discount percent', () => {
     render(<ProductCard product={mockProduct} onAddToCart={jest.fn()} />);
-    expect(screen.getByText('25% OFF')).toBeInTheDocument();
+    expect(screen.getByText(/25% off/i)).toBeInTheDocument();
   });
 
-  it('calls onAddToCart when button clicked', () => {
+  it('shows Free Delivery tag', () => {
+    render(<ProductCard product={mockProduct} onAddToCart={jest.fn()} />);
+    expect(screen.getByText(/Free Delivery/i)).toBeInTheDocument();
+  });
+
+  it('calls onAddToCart when card is clicked', () => {
     const mockFn = jest.fn();
     render(<ProductCard product={mockProduct} onAddToCart={mockFn} />);
-    fireEvent.click(screen.getByText('+ Add to Cart'));
-    expect(mockFn).toHaveBeenCalledWith(expect.objectContaining({ id: 1, size: 'M' }));
-  });
-
-  it('changes selected size on click', () => {
-    render(<ProductCard product={mockProduct} onAddToCart={jest.fn()} />);
-    const xlBtn = screen.getByText('XL');
-    fireEvent.click(xlBtn);
-    expect(xlBtn).toHaveClass('active');
-  });
-
-  it('shows "Added to Cart" after click', async () => {
-    render(<ProductCard product={mockProduct} onAddToCart={jest.fn()} />);
-    fireEvent.click(screen.getByText('+ Add to Cart'));
-    expect(screen.getByText('✓ Added to Cart')).toBeInTheDocument();
+    // In the new ProductCard, the whole card is clickable
+    fireEvent.click(screen.getByText(/Elegant Floral Dress/i));
+    expect(mockFn).toHaveBeenCalled();
   });
 });
