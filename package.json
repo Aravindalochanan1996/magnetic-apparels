@@ -8,6 +8,24 @@
     "start:node": "cd magnetic-apparels-node && npm run dev",
     "start:vue": "cd magnetic-apparels-vue && npm run dev",
     "start:react": "cd magnetic-apparels-react && npm start",
-    "start:angular": "cd magnetic-apparels-angular && npm start"
-  }
+    "start:angular": "cd magnetic-apparels-angular && npm start",
+    "start:all": "concurrently \"npm run start:node\" \"npm run start:vue\" \"npm run start:react\" \"npm run start:angular\"",
+    "dev": "concurrently \"npm run start:node\" \"npm run start:vue\" \"npm run start:react\" \"npm run start:angular\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aravindalochanan1996/magnetic-apparels.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Aravindalochanan1996/magnetic-apparels/issues"
+  },
+  "homepage": "https://github.com/Aravindalochanan1996/magnetic-apparels#readme"
 }
